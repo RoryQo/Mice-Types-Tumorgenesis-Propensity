@@ -69,19 +69,25 @@ cat("P(theta_b < theta_a | y_a, y_b) =",mean(y_a_mont > y_b_mont))
 ## Findings
 
 ### Probability of Tumorigenesis Affinity
-The Monte Carlo simulations revealed a strong probability that the tumorigenesis affinity of Type A mice, $\theta_A$, is higher than that of Type B mice, $\theta_B$. This was based on the comparison of the posterior distributions derived from the simulation.
+The Monte Carlo simulations revealed a strong probability that the tumorigenesis affinity of Type B mice, $\theta_B$, is higher than that of Type A mice, $\theta_A$. This was based on the comparison of the posterior distributions derived from the simulation.
 
 - The simulation results suggest that, in general, Type B mice show a higher tendency for tumor development, even with the conservative estimate provided by the Poisson model for Type B.
 
 ### Effect of Sample Size on Tumorigenesis Probability
 In further analysis, we explored the effect of varying sample sizes, $n_0$, on the probability of Type B mice having a higher tumor count than Type A mice.
 
-- **Increasing Sample Size**: As $n_0$ increases, the probability that $\theta_A$ exceeds $\theta_B$ decreases, making the conclusions more stable and less sensitive to prior assumptions.
+- **Increasing Sample Size**: As $n_0$ increases, the probability that $\theta_A$ exceeds $\theta_B$ increases, making the conclusions less stable and more sensitive to prior assumptions.
+
+<img src="https://raw.githubusercontent.com/RoryQo/R-Rat-Lab/main/Figures/Graph2.jpg" alt="Graph Image" width="450" />
+
   
 ### Comparison of Posterior Distributions
 By comparing the posterior distributions of tumor counts for Type A and Type B, we assessed the probability that samples from Type B have fewer tumors than samples from Type A. 
 
-- As expected, larger sample sizes lead to a stronger differentiation between the two types, reinforcing the conclusion that Type B mice have a significantly higher tumorigenesis rate.
+- As expected, larger sample sizes lead to less certainty; however, it begins to level off at higher sample sizes (approaching $n_0 = 100$) there will be approximately a 75% probability that Mice type B has higher tumor genesis.
+
+<img src="https://raw.githubusercontent.com/RoryQo/R-Rat-Lab/main/Figures/Graph2.jpg" alt="Graph Image" width="450" />
+
 
 ## Model Evaluation
 
