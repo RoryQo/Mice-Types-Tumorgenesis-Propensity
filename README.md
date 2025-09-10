@@ -23,16 +23,6 @@
 ## Overview
 A cancer lab is investigating the rate of tumorigenesis in two types of mice. Type A mice have been extensively studied, and existing data suggests that their tumor counts follow a Poisson distribution with a mean of 12. The parameter $\theta_A\$ follows a gamma distribution defined as gamma(120, 12). In contrast, the distribution of tumor counts for Type B mice is unknown.
 
-## Results
-
-The results from our analysis provide compelling evidence of a significant difference between Type A and Type B mice in terms of their tumorigenesis rates.
-
-- **Type B Mice** exhibit a higher affinity for tumorigenesis when compared to Type A mice. This was confirmed through extensive Monte Carlo simulations, where Type B mice were shown to have higher predicted tumor counts in 70% of the simulations.
-  
-- **Poisson Model Fit**: The Poisson model, which is effective for Type A mice, underpredicts the standardized tumor counts for Type B mice. This discrepancy suggests that the Poisson model is not suitable for Type B, leading to the use of the model as a **lower boundary** for the tumorigenesis propensity of Type B mice. Even when treating the Poisson model as a conservative estimate, the simulations show a **stronger propensity for tumorigenesis in Type B mice** compared to Type A.
-
-- **Implication**: This result underscores that Type B mice have a **significantly higher propensity** for developing tumors, a distinction that becomes clearer as we treat the Poisson model as a lower bound for their tumor rates.
-
 
 ## Analysis Methodology
 
@@ -76,17 +66,17 @@ The Monte Carlo simulations revealed a strong probability that the tumorigenesis
 ### Effect of Sample Size on Tumorigenesis Probability
 In further analysis, we explored the effect of varying sample sizes, $n_0$, on the probability of Type B mice having a higher tumor count than Type A mice.
 
-- **Increasing Sample Size**: As $n_0$ increases, the probability that $\theta_A$ exceeds $\theta_B$ increases, making the conclusions less stable and more sensitive to prior assumptions.
+- **Increasing Sample Size**: As $n_0$ increases, the probability that $\theta_A$ exceeds $\theta_B$ increases, making the conclusions less stable and more sensitive to prior assumptions. However, there does seem to be a leveling off of the probability as $n_0$ approaches 100 - it appears to stabilize at approximately a 25% probability.
 
-<img src="https://raw.githubusercontent.com/RoryQo/R-Rat-Lab/main/Figures/Graph2.jpg" alt="Graph Image" width="450" />
+<img src="https://raw.githubusercontent.com/RoryQo/R-Rat-Lab/main/Figures/Posttheta.png" alt="Graph Image" width="450" />
 
   
 ### Comparison of Posterior Distributions
 By comparing the posterior distributions of tumor counts for Type A and Type B, we assessed the probability that samples from Type B have fewer tumors than samples from Type A. 
 
-- As expected, larger sample sizes lead to less certainty; however, it begins to level off at higher sample sizes (approaching $n_0 = 100$) there will be approximately a 75% probability that Mice type B has higher tumor genesis.
+- As expected, larger sample sizes lead to less certainty; however, it begins to significantly level off at higher sample sizes (approaching $n_0 = 100$) there will be approximately a 75% probability that Mice type B has higher tumor genesis.
 
-<img src="https://raw.githubusercontent.com/RoryQo/R-Rat-Lab/main/Figures/Graph2.jpg" alt="Graph Image" width="450" />
+<img src="https://raw.githubusercontent.com/RoryQo/R-Rat-Lab/main/Figures/Posty.png" alt="Graph Image" width="450" />
 
 
 ## Model Evaluation
@@ -100,4 +90,16 @@ The Poisson model fits the tumor count data for Type A mice well. The observed t
 For Type B mice, the Poisson model does not provide a good fit. The observed tumor count statistics deviate significantly from the model's predictions. This discrepancy suggests that Type B mice require a more complex model or a different distribution to accurately represent their tumor count data.
 
 <img src="https://raw.githubusercontent.com/RoryQo/R-Rat-Lab/main/Figures/Graph2.jpg" alt="Graph Image" width="450" />
+
+
+
+## Results
+
+The results from our analysis provide compelling evidence of a significant difference between Type A and Type B mice in terms of their tumorigenesis rates.
+
+- **Type B Mice** exhibit a higher affinity for tumorigenesis when compared to Type A mice. This was confirmed through extensive Monte Carlo simulations, where Type B mice were shown to have higher predicted tumor counts in 70% of the simulations.
+  
+- **Poisson Model Fit**: The Poisson model, which is effective for Type A mice, underpredicts the standardized tumor counts for Type B mice. This discrepancy suggests that the Poisson model is not suitable for Type B, leading to the use of the model as a **lower boundary** for the tumorigenesis propensity of Type B mice. Even when treating the Poisson model as a conservative estimate, the simulations show a **stronger propensity for tumorigenesis in Type B mice** compared to Type A.
+
+- **Implication**: This result underscores that Type B mice have a **significantly higher propensity** for developing tumors, a distinction that becomes clearer as we treat the Poisson model as a lower bound for their tumor rates.
 
